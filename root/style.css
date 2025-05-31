@@ -1,0 +1,376 @@
+/* Basic CSS for the One-Pager */
+:root {
+    --primary-color: #0056b3; /* Darker blue for primary actions */
+    --secondary-color: #007bff; /* Bright blue for accents */
+    --text-color: #333;
+    --background-color: #f8f9fa;
+    --light-grey: #e9ecef;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: var(--background-color);
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+header p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #ffc107; /* Bright yellow/orange for CTA */
+    color: var(--primary-color);
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.cta-button:hover {
+    background-color: #e0a800;
+    transform: translateY(-2px);
+}
+
+section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: white;
+    border-bottom: 1px solid var(--light-grey);
+}
+
+section:nth-of-type(even) {
+    background-color: var(--background-color);
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.feature-item {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+}
+
+.feature-item h3 {
+    color: var(--secondary-color);
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 10px; /* Added spacing */
+}
+
+/* Service Area Specific Styles */
+.section-description {
+    max-width: 800px;
+    margin: 0 auto 50px;
+    font-size: 1.1em;
+    color: #555;
+}
+
+
+.service-area-grid {
+    display: flex; /* Change from grid to flex to control main column flow */
+    flex-direction: column; /* Stack the city list and the full-width card */
+    gap: 25px; /* Spacing between the city list and the full-width card */
+    margin-top: 40px;
+    margin-bottom: 50px;
+    align-items: center; /* Center the entire grid content */
+}
+
+.city-list-columns {
+    display: grid; /* Use grid for the 2-column layout for cities */
+    grid-template-columns: repeat(2, 1fr); /* FORCES TWO EQUAL COLUMNS */
+    gap: 25px; /* Spacing between city cards */
+    max-width: 600px; /* Limit width of the two columns for better aesthetics on large screens */
+    width: 100%; /* Ensure it takes full width up to max-width */
+}
+
+
+.city-card {
+    background-color: white;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-bottom: 4px solid var(--primary-color);
+}
+
+.city-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.city-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--secondary-color);
+    font-size: 1.2em; /* Keep smaller size as discussed */
+    margin-top: 0;
+    margin-bottom: 5px; /* Keep smaller margin as discussed */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.city-card .emoji {
+    font-size: 1.2em;
+    line-height: 1;
+}
+
+.full-width-card {
+    /* No need for grid-column: 1 / -1; anymore since parent is flex column */
+    background-color: var(--light-grey);
+    border-bottom: 4px solid #ffc107;
+    text-align: center;
+    width: 100%; /* Make sure it takes full width of its flex container */
+    max-width: 800px; /* Optional: control max width for better readability */
+}
+
+.full-width-card h3 {
+    justify-content: center;
+    color: var(--primary-color);
+}
+
+.full-width-card p {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.05em;
+}
+
+.city-card .emoji {
+    font-size: 1.2em;
+    line-height: 1;
+}
+
+.full-width-card {
+    grid-column: 1 / -1;
+    background-color: var(--light-grey);
+    border-bottom: 4px solid #ffc107;
+    text-align: center;
+}
+
+.full-width-card h3 {
+    justify-content: center;
+    color: var(--primary-color);
+}
+
+.full-width-card p {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.05em;
+}
+
+.cta-prompt {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+
+/* About Section */
+#about img {
+    max-width: 250px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 5px solid var(--light-grey);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+#about p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* Contact Section */
+#contact .contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+#contact .contact-info a {
+    font-size: 1.4em;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#contact .contact-info a:hover {
+    text-decoration: underline;
+}
+
+#contact form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+}
+
+#contact form input,
+#contact form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--light-grey);
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+#contact form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+#contact form button {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#contact form button:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.9em;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    header p {
+        font-size: 1em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    /* Service Area Mobile Adjustments */
+    .service-area-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .city-card h3 {
+        font-family: 'Montserrat', sans-serif;
+        color: var(--secondary-color);
+        /* Change this line for a smaller font size */
+        font-size: 1.2em; /* Reduced from 1.6em */
+        margin-top: 0;
+        /* Adjust margin-bottom if needed, you can even remove it if you prefer */
+        margin-bottom: 5px; /* Slightly reduced from 10px, or set to 0 */
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .full-width-card {
+        text-align: left;
+    }
+
+    .full-width-card h3 {
+        justify-content: flex-start;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .service-area-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .city-card h3 {
+        font-size: 1.1em; /* Further reduced for mobile */
+        justify-content: flex-start;
+    }
+}
