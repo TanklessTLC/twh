@@ -394,10 +394,12 @@
       <p><strong>Business Hours:</strong> Monday - Friday, 8:00 AM - 5:00 PM MDT</p>
     </div>
     <form action="#" method="POST"> <h3>Send Us a Message</h3>
-      <input type="text" id="name" name="name" placeholder="Your Name" required>
-      <input type="email" id="email" name="email" placeholder="Your Email" required>
-      <input type="tel" id="phone" name="phone" placeholder="Your Phone Number (Optional)">
-      <textarea id="message" name="message" rows="5" placeholder="Tell us about your tankless water heater or what you need help with." required></textarea>
+      <label for="name"></label><input type="text" id="name" name="name" placeholder="Your Name" required>
+      <label for="email"></label><input type="email" id="email" name="email" placeholder="Your Email" required>
+      <label for="phone"></label><input type="tel" id="phone" name="phone" placeholder="Your Phone Number (Optional)">
+      <label for="message"></label><textarea id="message" name="message" rows="5"
+                                             placeholder="Tell us about your tankless water heater or what you need help with."
+                                             required></textarea>
       <button type="submit">Get Your Free Quote</button>
     </form>
   </div>
