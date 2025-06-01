@@ -130,9 +130,9 @@ h2 {
 
 .city-list-columns {
     display: grid; /* Use grid for the 2-column layout for cities */
-    grid-template-columns: repeat(2, 1fr); /* FORCES TWO EQUAL COLUMNS */
+    grid-template-columns: repeat(4, 1fr); /* FORCES TWO EQUAL COLUMNS */
     gap: 25px; /* Spacing between city cards */
-    max-width: 600px; /* Limit width of the two columns for better aesthetics on large screens */
+    max-width: 80%; /* Limit width of the two columns for better aesthetics on large screens */
     width: 100%; /* Ensure it takes full width up to max-width */
 }
 
@@ -308,6 +308,16 @@ footer {
 
 footer p {
     margin: 0;
+}
+
+.footer-link-subtle {
+  color: #555; /* A dark grey, less harsh than default blue */
+  text-decoration: none; /* Optional: removes underline */
+}
+
+.footer-link-subtle:hover {
+  color: #007bff; /* Optional: bring back a brighter color on hover */
+  text-decoration: underline; /* Optional: add underline on hover */
 }
 
 /* Responsive Adjustments */
