@@ -18,18 +18,49 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 90%;
     margin: 0 auto;
     padding: 20px;
 }
 
-header {
-    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-    color: white;
-    padding: 80px 20px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
+
+    header { /* This targets your <header id="hero"> */
+        background-image: url('water-drops-texture-background-blue-design.jpg'); /* Path to your image */
+        background-size: cover; /* Ensures the image covers the whole section */
+        background-position: center center; /* Centers the image */
+        background-repeat: no-repeat; /* Prevents the image from tiling */
+        color: white; /* Keep text white, or adjust if droplets are light */
+        padding: 20px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* To improve readability of text over the background image,
+       you might want to add a semi-transparent overlay.
+       You can do this by adding a pseudo-element to the header: */
+    /* header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+        z-index: 1; /* Place overlay behind the content */
+    } */
+
+    /* Ensure header content is above the overlay */
+    header .container {
+        position: relative; /* Or any element containing your h1, p, button */
+        z-index: 2;
+    }
+
+#logo {
+    max-height: 500px; /* Controls the maximum height of the logo */
+    width: auto; /* Maintains the aspect ratio */
+    margin-bottom: 10px; /* Adds some space below the logo */
+    
 }
 
 header h1 {
@@ -37,6 +68,7 @@ header h1 {
     font-size: 3em;
     margin-bottom: 10px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    
 }
 
 header p {
@@ -118,26 +150,93 @@ h2 {
     color: #555;
 }
 
-
 .service-area-grid {
-    display: flex; /* Change from grid to flex to control main column flow */
-    flex-direction: column; /* Stack the city list and the full-width card */
-    gap: 25px; /* Spacing between the city list and the full-width card */
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
     margin-top: 40px;
     margin-bottom: 50px;
-    align-items: center; /* Center the entire grid content */
+    align-items: center;
 }
 
-.city-list-columns {
-    display: grid; /* Use grid for the 2-column layout for cities */
-    grid-template-columns: repeat(4, 1fr); /* FORCES TWO EQUAL COLUMNS */
-    gap: 25px; /* Spacing between city cards */
-    max-width: 80%; /* Limit width of the two columns for better aesthetics on large screens */
-    width: 100%; /* Ensure it takes full width up to max-width */
+    .map-and-highlights-container {
+      display: flex;
+      flex-direction: column; /* Mobile first: map will be primary, lists hidden or stacked */
+      gap: 20px;
+      width: 100%;      /* Allow it to take full width of its parent */
+      max-width: 100%;   /* Ensure it can use that full width */
+      margin-bottom: 25px;
+    }
+
+
+
+.map-embed-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* Changed from 75% for a 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.map-embed-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0; /* Ensure no iframe border */
+}
+/* In style.css */
+
+/* ... (keep existing .map-embed-wrapper styles) ... */
+
+.map-and-highlights-container {
+  display: flex;
+  flex-direction: column; /* Mobile first: map will be primary, lists hidden or stacked */
+  gap: 20px;
+  width: 90%;
+  max-width: 90%; /* Adjust as needed for overall width */
+  margin-bottom: 25px;
+}
+
+.highlighted-cities { /* General style for both city lists */
+  display: none; /* Hidden on mobile by default */
+  background-color: var(--background-color);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.highlighted-cities h3 {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--primary-color);
+  font-size: 1.3em; /* Adjusted size */
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.highlighted-cities ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.highlighted-cities ul li {
+  padding: 6px 0; /* Adjusted padding */
+  font-size: 1em; /* Adjusted size */
+  color: var(--text-color);
+  border-bottom: 1px solid var(--light-grey);
+}
+
+.highlighted-cities ul li:last-child {
+  border-bottom: none;
 }
 
 
-.city-card {
+.city-card { /* This class is still used for the "Don't see your area" card */
     background-color: white;
     padding: 25px 30px;
     border-radius: 10px;
@@ -155,9 +254,9 @@ h2 {
 .city-card h3 {
     font-family: 'Montserrat', sans-serif;
     color: var(--secondary-color);
-    font-size: 1.2em; /* Keep smaller size as discussed */
+    font-size: 1.2em;
     margin-top: 0;
-    margin-bottom: 5px; /* Keep smaller margin as discussed */
+    margin-bottom: 5px;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -168,36 +267,12 @@ h2 {
     line-height: 1;
 }
 
-.full-width-card {
-    /* No need for grid-column: 1 / -1; anymore since parent is flex column */
+.full-width-card { /* This class is used for the "Don't see your area" card */
     background-color: var(--light-grey);
     border-bottom: 4px solid #ffc107;
     text-align: center;
-    width: 100%; /* Make sure it takes full width of its flex container */
-    max-width: 800px; /* Optional: control max width for better readability */
-}
-
-.full-width-card h3 {
-    justify-content: center;
-    color: var(--primary-color);
-}
-
-.full-width-card p {
-    max-width: 700px;
-    margin: 0 auto;
-    font-size: 1.05em;
-}
-
-.city-card .emoji {
-    font-size: 1.2em;
-    line-height: 1;
-}
-
-.full-width-card {
-    grid-column: 1 / -1;
-    background-color: var(--light-grey);
-    border-bottom: 4px solid #ffc107;
-    text-align: center;
+    width: 100%;
+    max-width: 800px;
 }
 
 .full-width-card h3 {
@@ -223,7 +298,7 @@ h2 {
 /* About Section */
 #about img {
     max-width: 250px;
-    border-radius: 50%;
+    border-radius: 8px;
     margin-bottom: 20px;
     border: 5px solid var(--light-grey);
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
@@ -301,9 +376,12 @@ h2 {
 footer {
     background-color: #333;
     color: white;
-    text-align: center;
+    text-align: left;
     padding: 30px 20px;
     font-size: 0.9em;
+}
+.social-links a {
+  text-decoration: none; /* Removes the underline from social links */
 }
 
 footer p {
@@ -317,70 +395,189 @@ footer p {
 
 .footer-link-subtle:hover {
   color: #007bff; /* Optional: bring back a brighter color on hover */
-  text-decoration: underline; /* Optional: add underline on hover */
+  text-decoration: none; /* Optional: add underline on hover */
 }
 
-/* Responsive Adjustments */
+/* Desktop view for map and highlights */
+@media (min-width: 992px) {
+  .map-and-highlights-container {
+    flex-direction: row; /* Side-by-side on desktop */
+    align-items: flex-start;
+    justify-content: space-between; /* Distribute space */
+    gap: 25px;
+  }
+
+  .highlighted-cities { /* Show on desktop */
+    display: block;
+    flex: 1; /* Each list takes up available space */
+    max-width: 220px; /* Control width of city lists */
+    text-align: left;
+  }
+
+  .highlighted-cities h3 {
+    text-align: left;
+  }
+
+  .map-embed-wrapper {
+    flex: 2; /* Map takes more space, adjust ratio as needed */
+    min-width: 300px; /* Ensure map doesn't get too squished */
+    /* padding-bottom: 50%; /* You might want a different aspect ratio for wider desktop map */
+  }
+}
+
+/* Optional: Tablet view - maybe show only map or one list */
+@media (min-width: 768px) and (max-width: 991px) {
+  .map-and-highlights-container {
+    /* Keep map primary, maybe show one list if space allows, or just map */
+  }
+  .highlighted-cities.cities-left {
+    /* display: block; */ /* Example: show left list */
+  }
+  .highlighted-cities.cities-right {
+    display: none; /* Hide right list on tablet */
+  }
+}
+/* New list format for "Why Go Tankless?" section */
+.info-list {
+    display: grid; /* Use grid for more powerful layouts */
+    grid-template-columns: 1fr; /* Default to a single column for mobile */
+    gap: 30px;
+    max-width: 1100px; /* Constrain the max width of the grid on large screens */
+    margin: 0 auto; /* Center the grid within the section */
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column; /* Stack image above text */
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.info-item:hover {
+    transform: translateY(-5px);
+}
+
+.info-item img {
+    width: 100%;
+    height: 200px; /* Give images a consistent height */
+    object-fit: cover; /* Ensures images cover the area without distortion */
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* A simpler generic box for content sections */
+.box {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+/* New Service Area layout with Map Placeholder */
+.service-content {
+    display: flex;
+    align-items: stretch; /* Make columns equal height for a cleaner look */
+    gap: 30px;
+    text-align: left;
+}
+
+.service-map {
+    flex: 1;
+    /* Replaced the aspect-ratio hack with a fixed height for better layout control */
+    height: 400px;
+    border-radius: 5px;
+    overflow: hidden; /* Ensures the iframe respects the border-radius */
+}
+
+.service-map iframe {
+    /* Simplified to fill the container */
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.service-cities {
+    flex: 1;
+}
+
+.service-cities ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+/* Style for the logo in the "Our Commitment" section */
+.logo-placeholder {
+    margin: 20px auto 0;
+    text-align: center;
+}
+
+.logo-placeholder img {
+    max-width: 200px;
+    opacity: 0.8;
+}
+
+/* --- Footer Overhaul --- */
+/* Replace existing footer styles with this */
+footer {
+    padding: 30px 20px;
+    background: #333;
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+}
+
+.footer-contact p, .footer-links p {
+    margin: 5px 0;
+}
+
+.footer-contact a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+    color: #007bff;
+}
+
+.social-media a {
+    color: #fff;
+    margin: 0 10px;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-media a:hover {
+    color: #007bff;
+}
+
+.copyright {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #ccc;
+}
+
+/* --- Responsive Design --- */
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 2.5em;
-    }
-
-    header p {
-        font-size: 1em;
-    }
-
-    h2 {
-        font-size: 2em;
-    }
-
-    .cta-button {
-        padding: 12px 25px;
-        font-size: 1em;
-    }
-
-    .features-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .container {
-        padding: 15px;
-    }
-
-    /* Service Area Mobile Adjustments */
-    .service-area-grid {
-        grid-template-columns: 1fr;
-    }
-
-
-    .city-card h3 {
-        font-family: 'Montserrat', sans-serif;
-        color: var(--secondary-color);
-        /* Change this line for a smaller font size */
-        font-size: 1.2em; /* Reduced from 1.6em */
-        margin-top: 0;
-        /* Adjust margin-bottom if needed, you can even remove it if you prefer */
-        margin-bottom: 5px; /* Slightly reduced from 10px, or set to 0 */
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .full-width-card {
-        text-align: left;
-    }
-
-    .full-width-card h3 {
-        justify-content: flex-start;
+    .service-content {
+        flex-direction: column;
+        text-align: center;
     }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
-    .service-area-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-    .city-card h3 {
-        font-size: 1.1em; /* Further reduced for mobile */
-        justify-content: flex-start;
+@media (min-width: 769px) {
+    .info-list {
+        grid-template-columns: repeat(3, 1fr); /* Switch to 3 columns on desktop */
     }
 }
