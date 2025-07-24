@@ -1,9 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tankless TLC</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome for social media icons -->
+    <link rel="stylesheet" href="layout.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
@@ -14,7 +16,6 @@
     <main>
         <section id="info">
             <h2>Why Go Tankless?</h2>
-            <!-- This section is now a list with images, per your feedback -->
             <div class="info-list">
                 <div class="info-item">
                     <img src="Set One/twh-grid-4.jpg" alt="Endless hot water illustration">
@@ -69,11 +70,14 @@
         <section id="contact">
             <h2>Contact Us</h2>
             <p>Have a question or want a quote? Fill out the form below, and we'll get back to you as soon as possible!</p>
-            <div class="form-container">
-                <iframe 
-                title="Contact Us Form" 
-                src="https://docs.google.com/forms/d/e/1FAIpQLSceXkCoEzcjOgIUBCr3FDyM1gqc5MKUkWeVWP_IqOP3e1_umA/viewform?embedded=true">Loading…</iframe>
-            </div>
+            <form action="#" class="form">
+                <div class="form-item">
+                    <input type="text" class="form-input" placeholder="Name" aria-label="first name">
+                </div>
+                <div class="form-item">
+                    <input type="text" class="form-input" placeholder="email" aria-label="email">
+                </div>
+            </form>
         </section>
     </main>
 
@@ -83,7 +87,7 @@
             <p>Phone: <a href="tel:+1-253-334-1896">(253) 334-1896</a></p>
             <p>Email: <a href="mailto:tanklesstlc@gmail.com">tanklesstlc@gmail.com</a></p>
         </div>
-        <div class="copywright"><p class="copyright">&copy; 2025 Tankless TLC. All rights reserved.</p></div>
+        <p class="copyright">&copy; <span id="current-year">2025</span> Tankless TLC. All rights reserved.</p>
         <div class="footer-links">
             <div class="social-media">
                 <a href="https://www.facebook.com/profile.php?id=61575703746101" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -92,5 +96,7 @@
             </div>
         </div>
     </footer>
+
+    <script src="script.js" defer></script>
 </body>
 </html>
