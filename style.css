@@ -298,9 +298,13 @@ h2 {
 .box {
     background: #fff;
     border: 1px solid #ddd;
-    padding: 20px;
+    padding: clamp(1.25rem, 5vw, 2rem); /* Fluid padding */
     margin-top: 20px;
     border-radius: 5px;
+    /* Use clamp for a fluid width with a max size, and center it */
+    width: clamp(280px, 90%, 1100px);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* New Service Area layout with Map Placeholder */
@@ -316,8 +320,8 @@ h2 {
 .service-map {
     /* Grow and shrink, with a preferred base size of 350px */
     flex: 1 1 350px;
-    /* Replaced the aspect-ratio hack with a fixed height for better layout control */
-    height: 400px;
+    /* Use aspect-ratio to maintain proportions at all screen sizes */
+    aspect-ratio: 4 / 3;
     border-radius: 5px;
     overflow: hidden; /* Ensures the iframe respects the border-radius */
 }
