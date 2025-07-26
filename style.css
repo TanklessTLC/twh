@@ -296,53 +296,47 @@ h2 {
 
 .info-item img {
     width: 100%;
-    height: 200px; /* Give images a consistent height */
-    object-fit: cover; /* Ensures images cover the area without distortion */
+    height: 200px;
+    object-fit: cover; 
     border-radius: 5px;
     margin-bottom: 20px;
 }
 
-/* A simpler generic box for content sections */
 .box {
     background: #fff;
     border: 1px solid #ddd;
-    padding: clamp(1.25rem, 5vw, 2rem); /* Fluid padding */
+    padding: clamp(1.25rem, 5vw, 2rem);
     margin-top: 20px;
     border-radius: 5px;
-    /* Use clamp for a fluid width with a max size, and center it */
     width: clamp(280px, 90%, 1100px);
     margin-left: auto;
     margin-right: auto;
 }
 
-/* New Service Area layout with Map Placeholder */
+
 .service-content {
     display: flex;
-    flex-wrap: wrap; /* Allows items to wrap onto the next line */
-    justify-content: center; /* Center items when they wrap */
-    align-items: stretch; /* Make columns equal height for a cleaner look */
-    gap: clamp(1.5rem, 5vw, 2rem); /* Fluid gap */
+    flex-wrap: wrap;
+    justify-content: center; 
+    align-items: stretch; 
+    gap: clamp(1.5rem, 5vw, 2rem); 
     text-align: left;
 }
 
 .service-map {
-    /* Grow and shrink, with a preferred base size of 350px */
     flex: 1 1 350px;
-    /* Use aspect-ratio to maintain proportions at all screen sizes */
     aspect-ratio: 4 / 3;
     border-radius: 5px;
-    overflow: hidden; /* Ensures the iframe respects the border-radius */
+    overflow: hidden;
 }
 
 .service-map iframe {
-    /* Simplified to fill the container */
     width: 100%;
     height: 100%;
     border: 0;
 }
 
 .service-cities {
-    /* Grow and shrink, with a preferred base size of 350px */
     flex: 1 1 350px;
 }
 
@@ -351,7 +345,6 @@ h2 {
     padding-left: 20px;
 }
 
-/* Style for the logo in the "Our Commitment" section */
 .logo-placeholder {
     margin: 20px auto 0;
     text-align: center;
