@@ -1,363 +1,195 @@
 :root {
-    --primary-color: #0056b3; /* Darker blue for primary actions */
-    --secondary-color: #007bff; /* Bright blue for accents */
-    --text-color: #333;
-    --background-color: #f8f9fa;
-    --light-grey: #e9ecef;
-}
+  --primary-color: #0056b3;
+  --secondary-color: #007bff;
+  --text-color: #333;
+  --background-color: #f8f9fa;
+  --light-grey: #e9ecef;
+  --border: hsl(0 0% 70%);
+  --highlight: hsl(0 0% 90%);
+  --gradient: linear-gradient(0deg, var (--bg) 95%, var(--bd-light));
+  --border-card: solid 1px var(--border);
+  --shadow: 0px 2px hsla(0, 0%, 0%, 0.07), 0px 4px 4px hsla(0, 0%, 0%, 0.15);
+  --padding: clamp(2.5rem, 8vw, 3.75rem) clamp(1rem, 4vw, 1.25rem);
+  --width: clamp(280px, 90%, 1100px);
 
-/* Modern CSS Reset - Box Sizing */
+}
 html {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
-*, *:before, *:after {
-    box-sizing: inherit;
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
-
 body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    color: var(--text-color);
-    line-height: 1.6;
-    background-color: var(--background-color);
-    scroll-behavior: smooth;
-}
-
-.container {
-    max-width: 90%;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-section {
-    padding: clamp(2.5rem, 8vw, 3.75rem) clamp(1rem, 4vw, 1.25rem); /* 40px-60px top/bottom, 16px-20px sides */
-    text-align: center;
-    background-color: white;
-    border-bottom: 1px solid var(--light-grey);
-}
-
-section:nth-of-type(even) {
-    background-color: var(--background-color);
-}
-
-h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: clamp(2rem, 5vw, 2.5rem); /* Fluid heading size */
-    color: var(--primary-color);
-    margin-bottom: 30px;
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: clamp(1.5rem, 4vw, 2rem); /* Fluid gap */
-    margin-top: 40px;
-}
-
-.feature-item {
-    background-color: white;
-    padding: clamp(1.5rem, 5vw, 2rem); /* Fluid padding */
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    text-align: left;
-    transition: transform 0.3s ease;
-}
-
-.feature-item:hover {
-    transform: translateY(-5px);
-}
-
-.feature-item h3 {
-    color: var(--secondary-color);
-    font-size: clamp(1.2rem, 4vw, 1.5rem); /* Fluid font size */
-    margin-top: 0;
-    margin-bottom: 10px; /* Added spacing */
-}
-
-/* Service Area Specific Styles */
-.section-description {
-    max-width: 800px;
-    margin: 0 auto 50px;
-    font-size: clamp(1rem, 2.5vw, 1.1rem); /* Fluid font size */
-    color: #555;
-}
-
-.service-area-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    margin-top: 40px;
-    margin-bottom: 50px;
-    align-items: center;
-}
-
-    .map-and-highlights-container {
-      display: flex;
-      flex-direction: column; /* Mobile first: map will be primary, lists hidden or stacked */
-      gap: 20px;
-      width: 100%;      /* Allow it to take full width of its parent */
-      max-width: 100%;   /* Ensure it can use that full width */
-      margin-bottom: 25px;
-    }
-
-
-
-.map-embed-wrapper {
-  position: relative;
-  padding-bottom: 56.25%; /* Changed from 75% for a 16:9 aspect ratio */
-  height: 0;
-  overflow: hidden;
-  width: 100%;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-}
-
-.map-embed-wrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0; /* Ensure no iframe border */
-}
-
-.highlighted-cities { /* General style for both city lists */
-  display: none; /* Hidden on mobile by default */
-  background-color: var(--background-color);
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-}
-
-.highlighted-cities h3 {
-  font-family: 'Montserrat', sans-serif;
-  color: var(--primary-color);
-  font-size: 1.3em; /* Adjusted size */
-  margin-top: 0;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-.highlighted-cities ul {
-  list-style: none;
-  padding: 0;
+  font-family: "Roboto", sans-serif;
   margin: 0;
-}
-
-.highlighted-cities ul li {
-  padding: 6px 0; /* Adjusted padding */
-  font-size: 1em; /* Adjusted size */
+  padding: 0;
   color: var(--text-color);
+  line-height: 1.6;
+  background-color: var(--background-color);
+  scroll-behavior: smooth;
+}
+section {
+  padding: var(--padding);
+  text-align: center;
+  background-color: white;
   border-bottom: 1px solid var(--light-grey);
 }
-
-.highlighted-cities ul li:last-child {
-  border-bottom: none;
+section:nth-of-type(even) {
+  background-color: var(--background-color);
 }
-
-
-.city-card { /* This class is still used for the "Don't see your area" card */
-    background-color: white;
-    padding: 25px 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    text-align: left;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-bottom: 4px solid var(--primary-color);
+h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  color: var(--primary-color);
+  margin-bottom: 30px;
 }
-
-.city-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-}
-
-.city-card h3 {
-    font-family: 'Montserrat', sans-serif;
-    color: var(--secondary-color);
-    font-size: 1.2em;
-    margin-top: 0;
-    margin-bottom: 5px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.city-card .emoji {
-    font-size: 1.2em;
-    line-height: 1;
-}
-
-.full-width-card { /* This class is used for the "Don't see your area" card */
-    background-color: var(--light-grey);
-    border-bottom: 4px solid #ffc107;
-    text-align: center;
-    width: 100%;
-    max-width: 800px;
-}
-
-.full-width-card h3 {
-    justify-content: center;
-    color: var(--primary-color);
-}
-
-.full-width-card p {
-    max-width: 700px;
-    margin: 0 auto;
-    font-size: 1.05em;
-}
-
-.cta-prompt {
-    font-size: 1.3em;
-    font-weight: bold;
-    color: var(--primary-color);
-    margin-top: 50px;
-    margin-bottom: 20px;
-}
-
-
-/* About Section */
-#about img {
-    max-width: 250px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    border: 5px solid var(--light-grey);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-#about p {
-    max-width: 800px;
-    margin: 0 auto;
-    font-size: 1.1em;
-    color: #555;
-}
-
-
-
-/* Contact Section */
-#contact .contact-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 40px;
-}
-
-#contact .contact-info a {
-    font-size: clamp(1.1rem, 4vw, 1.4rem); /* Fluid font size */
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: bold;
-}
-
-#contact .contact-info a:hover {
-    text-decoration: underline;
-}
-
-
-.social-links a {
-  text-decoration: none; 
-}
-
-
-.footer-link-subtle:hover {
-  color: #007bff; /* Optional: bring back a brighter color on hover */
-  text-decoration: none; /* Optional: add underline on hover */
-}
-
-/* New list format for "Why Go Tankless?" section */
-.info-list {
-    display: grid;
-    /* This creates responsive columns that adapt without a media query.
-       It fits as many 280px minimum columns as possible, and they grow to fill the space. */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: clamp(1.5rem, 5vw, 2rem); /* Fluid gap */
-    max-width: 1100px; /* Constrain the max width of the grid on large screens */
-    margin: 0 auto; /* Center the grid container */
-    justify-items: center; /* Center the items within their grid cells */
-}
-
-.info-item {
-    display: flex;
-    flex-direction: column; /* Stack image above text */
-    background: #fff;
-    padding: clamp(1.25rem, 5vw, 1.5rem);
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease;
-    width: 100%; /* Ensure item fills its grid cell */
-    max-width: 350px; /* Stop items from getting too wide on large screens */
-}
-
-.info-item:hover {
-    transform: translateY(-5px);
-}
-
-.info-item img {
-    width: 100%;
-    height: 200px; /* Give images a consistent height */
-    object-fit: cover; /* Ensures images cover the area without distortion */
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
-
-/* A simpler generic box for content sections */
 .box {
-    background: #fff;
-    border: 1px solid #ddd;
-    padding: clamp(1.25rem, 5vw, 2rem); /* Fluid padding */
-    margin-top: 20px;
-    border-radius: 5px;
-    /* Use clamp for a fluid width with a max size, and center it */
-    width: clamp(280px, 90%, 1100px);
-    margin-left: auto;
-    margin-right: auto;
+  padding: var(--padding);
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #fff;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  width: var(--width);
+  box-shadow: var(--shadow);
+}
+.info-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(1.5rem, 5vw, 2rem);
+  margin: 0 auto;
+  justify-items: center;
+  width: var(--width);
+}
+.info-item {
+  display: flex;
+  flex-direction: column;
+  padding: var(--padding);
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+  width: 100%;
+  background: #fff;
+  border-radius: 4px;
+  border: var(--border-card);
+  border-top: solid 1px var(--highlight);
+}
+.info-item:hover {
+  transform: translateY(-5px);
+}
+.info-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+.reasons-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(1.5rem, 5vw, 2rem);
+  margin: 0 auto;
+  width: var(--width);
+}
+.reason-item {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 4px;
+  border: var(--border-card);
+  border-top: solid 1px var(--highlight);
+  box-shadow: var(--shadow);
+  padding: clamp(1.5rem, 5vw, 2rem);
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+.reason-item:hover {
+  transform: translateY(-5px);
+}
+.reason-item h3 {
+  font-family: "Montserrat", sans-serif;
+  color: var(--primary-color);
+  margin-top: 0;
+}
+.reason-item p {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+.reason-item p:last-of-type {
+  margin-bottom: 0;
+}
+#about img {
+  max-width: 250px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 4px solid var(--light-grey);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+#about p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1em;
+  color: #555;
 }
 
-/* New Service Area layout with Map Placeholder */
+#contact .contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+#contact .contact-info a {
+  font-size: clamp(1.1rem, 4vw, 1.4rem);
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+#contact .contact-info a:hover {
+  text-decoration: underline;
+}
+.social-links a {
+  text-decoration: none;
+}
+.footer-link-subtle:hover {
+  color: #007bff;
+  text-decoration: none;
+}
+
 .service-content {
-    display: flex;
-    flex-wrap: wrap; /* Allows items to wrap onto the next line */
-    justify-content: center; /* Center items when they wrap */
-    align-items: stretch; /* Make columns equal height for a cleaner look */
-    gap: clamp(1.5rem, 5vw, 2rem); /* Fluid gap */
-    text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: clamp(1.5rem, 5vw, 2rem);
+  text-align: left;
 }
-
 .service-map {
-    /* Grow and shrink, with a preferred base size of 350px */
-    flex: 1 1 350px;
-    /* Use aspect-ratio to maintain proportions at all screen sizes */
-    aspect-ratio: 4 / 3;
-    border-radius: 5px;
-    overflow: hidden; /* Ensures the iframe respects the border-radius */
+  flex: 1 1 352px;
+  aspect-ratio: 4 / 3;
+  border-radius: 4px;
+  overflow: hidden;
 }
-
 .service-map iframe {
-    /* Simplified to fill the container */
-    width: 100%;
-    height: 100%;
-    border: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
-
 .service-cities {
-    /* Grow and shrink, with a preferred base size of 350px */
-    flex: 1 1 350px;
+  flex: 1 1 352px;
 }
-
 .service-cities ul {
-    list-style-type: disc;
-    padding-left: 20px;
+  list-style-type: disc;
+  padding-left: 20px;
 }
-
-/* Style for the logo in the "Our Commitment" section */
 .logo-placeholder {
-    margin: 20px auto 0;
-    text-align: center;
+  margin: 20px auto 0;
+  text-align: center;
 }
-
 .logo-placeholder img {
-    max-width: 200px;
-    opacity: 0.8;
+  max-width: 200px;
+  opacity: 0.8;
 }
