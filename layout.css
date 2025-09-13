@@ -5,12 +5,13 @@ body {
 
 /* --- Header Styles --- */
 header { /* This targets your <header id="hero"> */
-    background-image: url('water-drops-texture-background-blue-design.jpg'); /* Path to your image */
+    background-image: url('water-drops-texture-background-blue-design.webp'); /* Path to your image */
     background-size: cover; /* Ensures the image covers the whole section */
     background-position: center center; /* Centers the image */
     background-repeat: no-repeat; /* Prevents the image from tiling */
     color: white; /* Keep text white, or adjust if droplets are light */
-    padding: 0 clamp(1.25rem, 5vw, 2.5rem) clamp(1.25rem, 5vw, 2.5rem); /* top | horizontal | bottom */
+    padding: 0 clamp(1.25rem, 5vw, 2.5rem) 0; /* top | horizontal | bottom */
+    margin-top: 0;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -35,7 +36,7 @@ header .container {
 header h1 {
     font-family: 'Montserrat', sans-serif;
     font-size: clamp(2.2rem, 6vw, 3rem); /* Fluid font size */
-    margin-bottom: 10px;
+    margin-bottom: 0;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 
 }
@@ -74,7 +75,7 @@ nav {
     width: 100%;
     background: #333;
     z-index: 1000;
-    padding: 15px 0;
+    padding: 20px 0;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
