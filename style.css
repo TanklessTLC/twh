@@ -261,6 +261,6 @@ textarea.form-input {
 .site-title {
   text-transform: uppercase;
   text-shadow: 1px 1px 2px black, 0 0 1em #0052a2, 0 0 0.2em #0052a2;
-  font-size: clamp(5.2rem, 10vw, 8rem);
+  font-size: clamp(3rem, 10vw, 8rem);
   margin-block-start: -2rem;
 }

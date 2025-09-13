@@ -1,5 +1,6 @@
 body {
     position: relative;
+    padding-top: 70px;
 }
 
 /* --- Header Styles --- */
@@ -9,7 +10,7 @@ header { /* This targets your <header id="hero"> */
     background-position: center center; /* Centers the image */
     background-repeat: no-repeat; /* Prevents the image from tiling */
     color: white; /* Keep text white, or adjust if droplets are light */
-    padding: clamp(1.25rem, 5vw, 2.5rem); /* 20px -> 40px */
+    padding: 0 clamp(1.25rem, 5vw, 2.5rem) clamp(1.25rem, 5vw, 2.5rem); /* top | horizontal | bottom */
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -28,7 +29,6 @@ header .container {
     max-height: clamp(18.75rem, 40vw, 31.25rem); /* 300px -> 500px */
     width: auto; /* Maintains the aspect ratio */
     margin-bottom: 10px; /* Adds some space below the logo */
-    margin-top: 70px;
 
 }
 
@@ -112,6 +112,18 @@ nav ul li a {
 nav ul li a:hover {
     background-color: white;
     color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        grid-template-columns: 1fr;
+        padding: 0 clamp(1rem, 4vw, 1.25rem);
+    }
+
+    nav ul {
+        grid-column: 1;
+        justify-self: end;
+    }
 }
 
 /* --- Footer Styles --- */
