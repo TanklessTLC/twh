@@ -1,5 +1,4 @@
 body {
-    padding-top: 70px;
     position: relative;
 }
 
@@ -29,6 +28,7 @@ header .container {
     max-height: clamp(18.75rem, 40vw, 31.25rem); /* 300px -> 500px */
     width: auto; /* Maintains the aspect ratio */
     margin-bottom: 10px; /* Adds some space below the logo */
+    margin-top: 70px;
 
 }
 
